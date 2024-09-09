@@ -5,3 +5,4 @@ langchain_community
 torch
 transformers
 chromadb
+#create a 'raw' directory next to each 'processed' directory. Also create a 'collections directory'
