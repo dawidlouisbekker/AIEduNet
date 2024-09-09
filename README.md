@@ -1,3 +1,5 @@
 To make application work first download needed packages. Preferably in a virtual python environment. Then use 'streamlit run main.py' in the cmd if you are in the directory containing main.py. 
 
 BETA VERSION AND STILL LOTS OF BUGS+PROBLEMS
+
+Local vectorized chromadb databases. Working towards a network where computer resources are optionally shared for helping other embed their databases(chromadb in this case) also a community where you can download online chromadb vectorized databases to your local machine and choose between which AI model uses the database to retrieve answers. Currently trying DistelBERT for people with local computer's limited to 4GB RAM and higher. I want to use BM25 to filter which chunks of text correlate with input prompt most and distelBERT will form the response based on the prioritized chunks of text. I have a functioning local model which uses an Ollamh mistral model but ut does not have a FastAPI server hook for sending text to others devices for embedding.
