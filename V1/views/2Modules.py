@@ -57,7 +57,7 @@ def get_module():
 
 def get_last_Active_Module():
     with open('lastActiveModule.txt', 'r') as f:
-        return f.read().splitlines()[0]
+        return f.read().splitlines()
 
 def Create_module(module : str) -> bool:
     dirs = os.listdir()
