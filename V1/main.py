@@ -34,7 +34,7 @@ if 'module' not in st.session_state:
                 st.session_state.module = modules[0]
 else: 
     with open('lastActiveModule.txt', 'r') as f:
-        st.session_state.module = f.read().splitlines()[0]
+        st.session_state.module = f.read().splitlines()
     
 #For AWS lambda
 #from fastapi import FastAPI
