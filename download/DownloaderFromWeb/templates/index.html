@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+        <h1>Project EduNet</h1>
+        <p class="text-center">Please note that this is still in production</p>
+        <button id="downloadBtn" class="btn btn-primary">Download</button>
+    </div>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            var userAgent = navigator.userAgent;
+            var os = "Unknown OS";
+
+            if (userAgent.indexOf("Win") !== -1) os = "Windows";
+            else if (userAgent.indexOf("Linux") !== -1) os = "Linux";
+
+            if (os === "Windows" || os === "Linux") {
+                var contentDiv = document.getElementById('content');
+            fetch('/download-zip', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ os_version: os })
+            })
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'EduvNet.zip';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => console.error('Error:', error));
+        }});
+    </script>
+</body>
+
+
+{% endblock content %}}
