@@ -14,8 +14,8 @@ router = APIRouter(
     prefix='/auth',
     tags=['auth']
 )
-SECRET_KEY = 'oaVwGaAefSjFawLeffjawiopapwREomFVdfASapwASaskfaKJwlkemfa'
-ALGORITHM = 'HS256'
+SECRET_KEY = 'Will be choosen'
+ALGORITHM = 'Will be choosen'
 
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 
